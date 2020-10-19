@@ -3,7 +3,7 @@ class Area:
 		self.contains = " "
 
 	def __repr__(self):
-		return f"{self.contains}"
+		return self.contains
 
 	def clear(self):
 		self.contains = " "
