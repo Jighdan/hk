@@ -7,11 +7,8 @@ class Playable:
 		self.attack = attack
 
 	def __repr__(self):
-		fmt = f"HP: {self.health}" if self.alive else "Dead"
-		# return f"{self.name} | {fmt}"
 		return f"{self.name}"
 		
-
 	def _is_dead(self):
 		if self.health <= 0:
 			return True

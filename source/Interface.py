@@ -21,5 +21,6 @@ class Interface:
 		return f"| {content}{spaces}|"
 
 	def _format_to_the_middle(self, content):
-		spaces = " " * int((self.size - len(content)) / 2)
-		return f"|{spaces}{content}{spaces}|"
+		spaces = int((self.size - len(content)) / 2)
+		return content.center(spaces)
+
