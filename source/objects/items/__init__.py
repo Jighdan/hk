@@ -1,9 +1,9 @@
 class BaseItem:
-	def __init__(self, name, attributes):
+	def __init__(self, name: str, target_attribute: str, value: float):
 		self.name = name
-		self.attributes = attributes
+		self.target_attribute = target_attribute
+		self.value = value
 
 class Sword(BaseItem):
 	def __init__(self):
-		self.id = {"target": "attack", "value": 2}
-		super().__init__("Sword", self.id)
+		super().__init__("Sword", "attack", 2)

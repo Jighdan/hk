@@ -1,13 +1,17 @@
 class Playable:
 	def __init__(self, name, health, attack, faction):
-		self.faction = faction
 		self.alive = True
 		self.name = name
 		self.health = health
 		self.attack = attack
+		self.faction = faction
+		self.position = None
 
 	def __repr__(self):
 		return f"{self.name}"
+
+	def __str__(self):
+		return self.name
 		
 	def _is_dead(self):
 		if self.health <= 0:
