@@ -1,21 +1,41 @@
-from typing import List
+from .tools.graph import Point, AlphaPoint
+from .tools.board_interpreter import convert_alpha_to_point, convert_point_to_alpha
 
-class TurnStack:
-	def __init__(self, players):
-		self.players: List = players
-		self.turn_stack: List = players
-		self.current_turn = None
+class Machine:
+	def __init__(self):
+		self.character = None
+		self.character_position = None
+		
+	def set_character(self, payload) -> None:
+		self.character = payload
 
-	def __repr__(self):
-		return self.current_turn
+	def set_character_position(self, payload: Point) -> None:
+		self.character_position = payload
 
-	def _filter_alive_players(self):
-		self.turn_stack = [_ for _ in self.players if _.alive]
 
-	def move_turn_ahead(self):
-		self._filter_alive_players()
-		if self.current_turn == None or self.turn_stack[-1]:
-			self.current_turn = self.turn_stack[0]
-		else:
-			index_of_next_turn: float = self.turn_stack.index(self.current_turn) + 1
-			self.current_turn = self.turn_stack[index_of_next_turn]
+class Player:
+	def __init__(self, name):
+		self.name = name
+		self.character = None
+		self.character_position = None
+		self.ref_board = None
+
+	def __str__(self) -> str:
+		return str(self.character)
+
+	def set_character(self, payload) -> None:
+		self.character = payload
+
+	def set_character_initial_position(self, payload) -> None:
+		self.character_position = payload
+
+	def call_character_move(self, target_position: AlphaPoint) -> AlphaPoint:
+		temp_position = convert_alpha_to_point(self.character_position)
+		self.ref_board.move_content(temp_position, convert_alpha_to_point(target_position))
+		self.character_position = convert_point_to_alpha(temp_position)
+		return target_position
+
+	def call_character_attack(self, target_position: AlphaPoint) -> AlphaPoint:
+		temp_position = convert_alpha_to_point(self.character_position)
+		self.ref_board.call_character_attack(temp_position, target_position)
+		return target_position

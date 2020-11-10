@@ -2,6 +2,7 @@ from collections import namedtuple
 from typing import List
 
 Point = namedtuple("Point", "x y")
+AlphaPoint = namedtuple("AlphaPoint", "alpha index")
 
 def _distance_between(origin: Point, target: Point) -> float:
 	"""Evaluates the distance between two points"""

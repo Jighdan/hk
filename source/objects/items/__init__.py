@@ -1,9 +1,13 @@
-class BaseItem:
-	def __init__(self, name: str, target_attribute: str, value: float):
-		self.name = name
-		self.target_attribute = target_attribute
-		self.value = value
+from .. import BaseObject
 
-class Sword(BaseItem):
-	def __init__(self):
-		super().__init__("Sword", "attack", 2)
+class BaseItem(BaseObject):
+	def __init__(self, attributes: dict, icon: str, color: str):
+		super().__init__(icon=icon, color=color)
+		self.name, self.target_attribute, self.value = attributes
+
+	def __repr__(self):
+		return {
+			"name": self.name,
+			"target": self.target_attribute,
+			"value": self.value
+		}

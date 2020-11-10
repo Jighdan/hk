@@ -1,17 +1,17 @@
-class Playable:
-	def __init__(self, name, health, attack, faction):
+from .. import BaseObject
+
+faction_colors = {
+	"human": "white",
+	"goblin": "green",
+}
+
+class Playable(BaseObject):
+	def __init__(self, icon, health, attack, faction):
+		super().__init__(icon=icon, color=faction_colors[faction])
 		self.alive = True
-		self.name = name
 		self.health = health
 		self.attack = attack
-		self.faction = faction
 		self.position = None
-
-	def __repr__(self):
-		return f"{self.name}"
-
-	def __str__(self):
-		return self.name
 		
 	def _is_dead(self):
 		if self.health <= 0:
@@ -22,8 +22,8 @@ class Playable:
 		if self._is_dead():
 			self.alive = False
 
-	def add_health(self, payload):
+	def _upgrade_health(self, payload):
 		self.health += payload
 
-	def add_attack(self, payload):
+	def _upgrade_attack(self, payload):
 		self.attack += payload

@@ -1,3 +1,4 @@
+from typing import List
 from .tools import TextValue
 
 class Interface:
@@ -24,3 +25,20 @@ class Interface:
 		spaces = int((self.size - len(content)) / 2)
 		return content.center(spaces)
 
+class Display:
+	def __init__(self):
+		self.text_box: List[str] = ["- ...", "- ...", "- ..."]
+		self.oldest_text: str = ""
+		self.upcoming_text: str = ""
+
+	def __repr__(self) -> str:
+		return "\n".join(self.text_box)
+
+	def _update_text_box(self) -> None:
+		self.oldest_text = self.text_box.pop(0)
+		self.text_box.append(self.upcoming_text)
+		self.upcoming_text = ""
+
+	def add_text(self, payload: str) -> None:
+		self.upcoming_text = f"- {payload}"
+		self._update_text_box()
