@@ -5,7 +5,7 @@ faction_colors = {
 	"goblin": "green",
 }
 
-class Playable(BaseObject):
+class BasePlayable(BaseObject):
 	def __init__(self, icon, health, attack, faction):
 		super().__init__(icon=icon, color=faction_colors[faction])
 		self.alive = True

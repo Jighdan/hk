@@ -1,0 +1,15 @@
+{
+	"icon": ";",
+	"color": "gray",
+	"target_attribute": "attack",
+	"items": {
+		"wooden_sword": {
+			"name": "Wooden Sword",
+			"value": 2
+		},
+		"iron_sword": {
+			"name": "Iron Sword",
+			"value": 4.5
+		}
+	}
+}

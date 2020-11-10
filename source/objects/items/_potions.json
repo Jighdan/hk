@@ -1,0 +1,11 @@
+{
+	"icon": "*",
+	"color": "gray",
+	"target_attribute": "health",
+	"items": {
+		"minor_hp": {
+			"name": "Minor HP Potion",
+			"value": 5
+		}
+	}
+}

@@ -1,6 +1,6 @@
-from . import Playable
+from . import BasePlayable
 
-class Human(Playable):
+class Human(BasePlayable):
 	def __init__(self):
 		super().__init__(icon="@", health=10, attack=1, faction="human")
 		self.holding_item = None

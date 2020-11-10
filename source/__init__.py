@@ -2,14 +2,15 @@
 from random import randint
 from typing import List
 from .board import Board
-from .logic import Player
+from .core.player import Player
 from .interface import Display, Interface
 from .tools.graph import Point
 from .tools.board_interpreter import convert_alpha_to_point, convert_point_to_alpha
 from .objects.characters.humans import Human
-from .objects.characters.goblins import Goblin
+from .objects.characters.monsters import Goblin
 from .objects.terrain import basic as terrain
-from .objects.items import weapons
+from .objects.items import _weapons
+# from .display
 
 class MainStarter:
 	def __init__(self):
