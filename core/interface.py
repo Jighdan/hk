@@ -1,5 +1,5 @@
 from typing import List
-from .tools import TextValue
+from .modules import TextValue
 
 class Interface:
 	def __init__(self, title, name="?", health="?", attack="?", size=16):

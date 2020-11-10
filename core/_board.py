@@ -1,7 +1,7 @@
 from typing import List
 from copy import copy
-from .tools.graph import Point
-from .tools.board_interpreter import alphabet
+from .modules.graph import Point
+from .modules.board_interpreter import alphabet
 
 class Board:
 	def __init__(self, size=8, empty_area="."):

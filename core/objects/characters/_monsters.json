@@ -1,0 +1,11 @@
+{
+	"icon": "M",
+	"color": "red",
+	"faction": "goblin",
+	"components": {
+		"goblin": {
+			"health": 5,
+			"attack": 1.5
+		}
+	}
+}

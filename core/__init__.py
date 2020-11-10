@@ -1,16 +1,14 @@
 # Base
 from random import randint
 from typing import List
-from .board import Board
-from .core.player import Player
+from ._board import Board
+from .player.lead import Player
 from .interface import Display, Interface
-from .tools.graph import Point
-from .tools.board_interpreter import convert_alpha_to_point, convert_point_to_alpha
+from .modules.graph import Point
+from .modules.board_interpreter import convert_alpha_to_point, convert_point_to_alpha
 from .objects.characters.humans import Human
 from .objects.characters.monsters import Goblin
 from .objects.terrain import basic as terrain
-from .objects.items import _weapons
-# from .display
 
 class MainStarter:
 	def __init__(self):
@@ -51,9 +49,3 @@ class MainStarter:
 		self.enemy.set_character_initial_position(self._seed_board_point())
 		self.board.add_content(self.hero.character_position, self.hero)
 		self.board.add_content(self.enemy.character_position, self.enemy)
-
-	def show_board(self):
-		print(self.board)
-
-	def map_board(self):
-		mapped = zip()

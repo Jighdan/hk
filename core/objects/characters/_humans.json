@@ -1,0 +1,11 @@
+{
+	"icon": "@",
+	"color": "white",
+	"faction": "human",
+	"components": {
+		"human_warrior": {
+			"health": 10,
+			"attack": 3
+		}
+	}
+}

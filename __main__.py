@@ -1,4 +1,4 @@
-from source import MainStarter
+from core import MainStarter
 
 home = MainStarter()
 
