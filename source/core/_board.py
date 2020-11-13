@@ -1,14 +1,14 @@
 from typing import List
 from copy import copy
-from .modules.graph import Point
+from .modules.graph import Point, Graph
 from .modules.board_interpreter import alphabet
 
 class Board:
-	def __init__(self, size=8, empty_area="."):
+	def __init__(self, size: int, empty_area="."):
 		self.board: List[List] = []
 		self.size: int = size if size <= 26 else 26 # Max size = 26
 		self.empty_area: str = empty_area
-		self.space_between: str = " "
+		self._space_between: str = " "
 		self._generate_board()
 
 	def __str__(self) -> str:
@@ -18,8 +18,8 @@ class Board:
 			for x in range(0, len(temp_board)):
 				temp_board[y][x] = str(temp_board[y][x])
 
-		output = [f"{self.space_between.join(temp_board[_])} {str(_ + 1)}" for _ in range(0, self.size)]
-		output.append(self.space_between.join([alphabet[_] for _ in range(self.size)]))
+		output = [f"{self._space_between.join(temp_board[_])} {str(_ + 1)}" for _ in range(0, self.size)]
+		output.append(self._space_between.join([alphabet[_] for _ in range(self.size)]))
 		return "\n".join(output)
 
 	def _is_area_empty(self, target: Point) -> bool:
@@ -51,6 +51,6 @@ class Board:
 			return origin
 
 	def add_content(self, target: Point, payload: any) -> Point:
-		if self._is_area_empty(target):
+		if self._is_area_empty(target) and Graph().is_point_in_range(target, self.size):
 			self.board[target.y][target.x] = payload
 		return target

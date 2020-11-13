@@ -6,5 +6,8 @@ class BaseMonster(BasePlayable):
 
 
 class Goblin(BaseMonster):
-	def __init__(self):
-		super().__init__(icon="g", health=5, attack=1, faction="goblin")
+	def __init__(self, health, attack):
+		super().__init__(icon="g", health=health, attack=attack, faction="goblin")
+
+young_goblin = Goblin(5, 1)
+warrior_goblin = Goblin(15, 4)

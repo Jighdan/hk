@@ -1,5 +1,5 @@
 class Gold:
-	def __init__(self, amount: float):
+	def __init__(self, amount=100.00):
 		self.amount: float = amount
 
 	def __str__(self):
