@@ -22,7 +22,3 @@ class BasePlayable(BaseObject):
 		self.health -= payload
 		if self._is_dead():
 			self.alive = False
-
-	def update_position(self, payload: Point) -> Point:
-		self.position = payload
-		return self.position

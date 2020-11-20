@@ -14,3 +14,9 @@ Assigning the player a list for storing it's characters.
 
 
 ### How do we set characters of a player in the board?
+
+## Issues
+- Missing conversion from input for proper board interpretation.
+
+## Feature Ideas
+- Generate random names using `pyname` module.

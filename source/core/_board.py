@@ -12,6 +12,7 @@ class Board:
 		self._generate_board()
 
 	def __str__(self) -> str:
+		"""Returns the a labeled board"""
 		temp_board = copy(self.board)
 		# Converts every item in the list to string
 		for y in range(0, len(temp_board)):
@@ -23,6 +24,7 @@ class Board:
 		return "\n".join(output)
 
 	def _is_area_empty(self, target: Point) -> bool:
+		"""Checks if an area of the board is equal to `self.empty_area`"""
 		return True if self.board[target.y][target.x] == self.empty_area else False
 
 	def _generate_board(self) -> None:
@@ -31,9 +33,11 @@ class Board:
 			self.board.append([f"{self.empty_area}" for _ in range(self.size)])
 
 	def _remove_content(self, target: Point):
+		"""Removes the content from an area"""
 		self.board[target.y][target.x] = self.empty_area
 
 	def _swap_areas(self, origin: Point, target: Point):
+		"""Exchanges the content betwen two areas"""
 		temp_origin = copy(self.board[origin.y][origin.x])
 		temp_target = copy(self.board[target.y][target.x])
 		self.board[target.y][target.x] = temp_origin
@@ -41,6 +45,7 @@ class Board:
 		return target
 
 	def move_content(self, origin: Point, target: Point) -> Point:
+		"""Moves the content from an area to """
 		temp_origin = self.board[origin.y][origin.x]
 		# Check if target is empty
 		if self.board[target.y][target.x] == self.empty_area:
@@ -50,7 +55,8 @@ class Board:
 		else:
 			return origin
 
-	def add_content(self, target: Point, payload: any) -> Point:
+	def add_content(self, payload: any, target: Point) -> Point:
+		"""Updates an empty area content"""
 		if self._is_area_empty(target) and Graph().is_point_in_range(target, self.size):
 			self.board[target.y][target.x] = payload
 		return target
